@@ -6,7 +6,7 @@ let books = [
  ];
 
 
-export const GET=async (request:NextRequest)=>{
+export const GET=async ()=>{
 const data=JSON.stringify(books)
 return new Response(data,{status:200})
 }
@@ -17,7 +17,7 @@ export const POST=async(request:NextRequest):Promise<Response>=>{
     books.push(newBook)
     return new Response(JSON.stringify({message:"sucess"}),{status:200})
  }
- catch(error){
+ catch{
     return new Response(JSON.stringify({message:"error"}), {status:400})
  }
 
@@ -32,7 +32,7 @@ export const PUT=async(request:NextRequest):Promise<Response>=>{
         books[index]=updatedBook
         return new Response(JSON.stringify({message:"sucess"}), {status:200})
     }
-    catch(error){
+    catch{
         return new Response(JSON.stringify({message:"error"}), {status:400})
     }
 }
